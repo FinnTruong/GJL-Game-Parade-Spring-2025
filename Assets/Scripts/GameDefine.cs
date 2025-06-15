@@ -50,4 +50,26 @@ public enum ToolType
     Inspect = 3,
 }
 
+public enum TitleType
+{
+    None = 0,
+    Amateur= 1,
+    Expert = 2,
+    Trailblazer = 3,
+    Mogul = 4,
+
+}
+
+public enum ResearchType
+{
+    None = 0,
+    Blueberry = 1,
+    BloodOrange = 2,
+    Pollination = 3,
+    Demolition = 4,
+    Crossbreeding = 5,
+    Fertilizer = 6,
+    Mogul = 7,
+}
+
 

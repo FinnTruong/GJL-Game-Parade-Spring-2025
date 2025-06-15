@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ResearchView : MonoBehaviour
+public class ResearchView : UIView
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] ScrollRect scroll;
+
+    protected override void OnShow()
     {
-        
+        base.OnShow();
+        scroll.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnHide()
     {
-        
+        base.OnHide();
+        scroll.enabled = false;
     }
 }
