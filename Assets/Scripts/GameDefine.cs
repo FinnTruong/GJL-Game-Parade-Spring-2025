@@ -13,6 +13,8 @@ public struct PlayerPrefsKey
     public const string VERSION_CODE = "VERSION_CODE";
     public const string CURRENT_WATER = "WATER";
     public const string RESERVOIR_CAPACITY = "RESERVOIR_CAPACITY";
+
+    public const string GOLD_LEAF = "GOLD_LEAF";
 }
 
 public enum CornerType
@@ -64,12 +66,23 @@ public enum ResearchType
 {
     None = 0,
     Blueberry = 1,
-    BloodOrange = 2,
+    Lychee = 2,
     Pollination = 3,
     Demolition = 4,
     Crossbreeding = 5,
     Fertilizer = 6,
     Mogul = 7,
+}
+
+public enum CropType
+{
+    None = 0,
+    Lemon = 1,
+    Blueberry = 2,
+    Lychee = 3,
+    Lemonberry = 4,
+    RubyLime = 5,
+    Rainberry = 6,
 }
 
 
