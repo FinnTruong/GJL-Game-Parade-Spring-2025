@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ConfigManager : GlobalReference<ConfigManager>
 {
-    public ToolConfig toolConfig;
     public CardConfig cardConfig;
+    public CropConfig cropConfig;
     public ResearchConfig researchConfig;
 
     protected override void Awake()

@@ -13,6 +13,9 @@ public class CardHolder : MonoBehaviour
     [SerializeReference] private Card hoveredCard;
 
     [SerializeField] private GameObject slotPrefab;
+
+    [SerializeField] private CardSlot cropCardSlotPrefab;
+    [SerializeField] private CardSlot itemCardSlotPrefab;
     private RectTransform rect;
 
     [Header("Spawn Settings")]
@@ -31,6 +34,7 @@ public class CardHolder : MonoBehaviour
 
     UserData userData => GameManager.Instance.userData;
     CardConfig cardConfig => ConfigManager.Instance.cardConfig;
+    CropConfig cropConfig => ConfigManager.Instance.cropConfig;
 
     private void Awake()
     {
@@ -106,15 +110,22 @@ public class CardHolder : MonoBehaviour
 
     public void AddCardToHand(int id)
     {
-        AddNewCard();
+        var cf = cardConfig.GetConfig(id);
+        if (cf == null)
+            return;
+
+
+        var slot = Instantiate(cropCardSlotPrefab, transform);
+        slot.Initialize(id);
+        BindSlotToHand(slot.gameObject);
+
     }
 
     Sequence addCardSequence;
 
     [Button]
-    public void AddNewCard()
-    {
-        var slot = Instantiate(slotPrefab, transform);
+    public void BindSlotToHand(GameObject slot)
+    {        
         slot.transform.position = spawnPos.position;
         slot.name += slots.Count - 1;
         slots.Add(slot.transform);

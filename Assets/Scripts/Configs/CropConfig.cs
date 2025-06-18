@@ -13,12 +13,14 @@ public class CropRewardData
 [Serializable]
 public class CropConfigData
 {
+    public int cardId;
     public CropType cropType;
+    public GameObject cropPrefab;
     public List<CropRewardData> rewardData;
 }
 
 
-[CreateAssetMenu(fileName = "CropConfig", menuName = "Scriptable Objects/CropConfig")]
+[CreateAssetMenu(fileName = "CropConfig", menuName = "Config/CropConfig")]
 public class CropConfig : ScriptableObject
 {
     public List<CropConfigData> Collection;

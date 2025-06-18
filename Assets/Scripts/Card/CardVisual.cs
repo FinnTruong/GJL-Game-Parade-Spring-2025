@@ -91,9 +91,16 @@ public class CardVisual : MonoBehaviour
         parentCard.PointerUpEvent.AddListener(PointerUp);
         parentCard.SelectEvent.AddListener(Select);
 
+        SetAppearance();
+
         //Initialization
         initalize = true;
 
+
+    }
+
+    public void SetAppearance()
+    {
 
     }
 

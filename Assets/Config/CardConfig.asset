@@ -14,6 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collection:
   - id: 0
-    prefab: {fileID: 0}
-  - id: 0
-    prefab: {fileID: 0}
+    name: Lemon
+    prefab: {fileID: 7119932107718505958, guid: d250e8bd107c41b4ea7579d0dd7c85d1, type: 3}
+  - id: 1
+    name: Blueberry
+    prefab: {fileID: 7119932107718505958, guid: fe642e6cf63e83843b8b20ccb57e474c, type: 3}
+  - id: 2
+    name: Lychee
+    prefab: {fileID: 7119932107718505958, guid: 4a2280d252db6b245a994d13b10394a1, type: 3}
+  - id: 3
+    name: Lavender Pear
+    prefab: {fileID: 7119932107718505958, guid: 2759531c41333114c84c2a8fe184f453, type: 3}
+  - id: 4
+    name: Ruby Lime
+    prefab: {fileID: 7119932107718505958, guid: 9371bd80174734d44a520d0e9ac3a67a, type: 3}
+  - id: 5
+    name: Forest Grass Apple
+    prefab: {fileID: 7119932107718505958, guid: febf1c22010a85a4eb07f6f170e38421, type: 3}

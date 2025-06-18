@@ -80,9 +80,9 @@ public enum CropType
     Lemon = 1,
     Blueberry = 2,
     Lychee = 3,
-    Lemonberry = 4,
+    LavenderPear = 4,
     RubyLime = 5,
-    Rainberry = 6,
+    ForestGrassApple = 6,
 }
 
 

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051bbf347e8b73745bf244157c3b9ce1, type: 3}
+  m_Name: CropConfig
+  m_EditorClassIdentifier: 
+  Collection:
+  - cardId: 0
+    cropType: 1
+    cropPrefab: {fileID: 4842809720341718785, guid: d250e8bd107c41b4ea7579d0dd7c85d1, type: 3}
+    rewardData: []
+  - cardId: 1
+    cropType: 2
+    cropPrefab: {fileID: 4842809720341718785, guid: fe642e6cf63e83843b8b20ccb57e474c, type: 3}
+    rewardData: []
+  - cardId: 2
+    cropType: 3
+    cropPrefab: {fileID: 4842809720341718785, guid: 4a2280d252db6b245a994d13b10394a1, type: 3}
+    rewardData: []
+  - cardId: 3
+    cropType: 4
+    cropPrefab: {fileID: 4842809720341718785, guid: 2759531c41333114c84c2a8fe184f453, type: 3}
+    rewardData: []
+  - cardId: 4
+    cropType: 5
+    cropPrefab: {fileID: 4842809720341718785, guid: 9371bd80174734d44a520d0e9ac3a67a, type: 3}
+    rewardData: []
+  - cardId: 5
+    cropType: 6
+    cropPrefab: {fileID: 4842809720341718785, guid: febf1c22010a85a4eb07f6f170e38421, type: 3}
+    rewardData: []

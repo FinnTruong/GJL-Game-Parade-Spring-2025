@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class HUDView : MonoBehaviour
+public class HUDView : UIView
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] CustomUIButton drawCardButton;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        drawCardButton.onClick.AddListener(() => DrawRandomCard());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DrawRandomCard()
     {
-        
+        int id = Random.Range(0, 6);
+        userData.AddCardToHand(id);
     }
 }

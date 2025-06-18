@@ -2,11 +2,19 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CardType
+{
+    None = 0,
+    Crop = 1,
+    Item = 2,
+}
+
 [System.Serializable]
 public class CardConfigData
 {
     public int id;
-    public GameObject prefab;
+    public string name;
+    public PlaceableObject prefab;
 }
 
 
@@ -26,14 +34,14 @@ public class CardConfig : ScriptableObject
         return null;
     }
 
-    public GameObject GetCard(int id)
-    {
-        var cf = GetConfig(id);
-        if (cf != null)
-            return cf.prefab;
+    //public GameObject GetCard(int id)
+    //{
+    //    var cf = GetConfig(id);
+    //    if (cf != null)
+    //        return cf.prefab;
 
-        return null;
-    }
+    //    return null;
+    //}
 
 
 }

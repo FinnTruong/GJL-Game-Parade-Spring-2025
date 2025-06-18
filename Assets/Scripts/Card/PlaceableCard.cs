@@ -5,8 +5,8 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class PlaceableCard : Card
-{
-    [SerializeField] PlaceableObject objectPrefab;
+{ 
+    public PlaceableObject objectPrefab;
     public UnityEvent onStartDrag;
     public UnityEvent onEndDrag;
 
@@ -15,6 +15,11 @@ public class PlaceableCard : Card
     PlacementSystem placementSystem =>PlacementSystem.Instance;
     InputManager inputManager => InputManager.Instance;
     public static Action OnFinishPlacement;
+
+    public void Initialize(int id)
+    {
+
+    }
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
