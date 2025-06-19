@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8351790516808900445}
   - component: {fileID: 4727365715720628957}
   m_Layer: 5
-  m_Name: CardSlot
+  m_Name: EnhancementCardSlot
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f5f92d4a6eebf4b9fadb2b3490aa5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 5277199736038818977}
+  cardId: 0
+  card: {fileID: 4341314167907705703}
 --- !u!1001 &910564355998267009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71,6 +72,10 @@ PrefabInstance:
       propertyPath: objectPrefab
       value: 
       objectReference: {fileID: 7119932107718505958, guid: 2759531c41333114c84c2a8fe184f453, type: 3}
+    - target: {fileID: 5016614461940281888, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
+      propertyPath: cardVisualPrefab
+      value: 
+      objectReference: {fileID: 2804685291886093335, guid: 7b4977e0142d1534c90ad304420ceeb1, type: 3}
     - target: {fileID: 5540506774654050568, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -155,24 +160,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5016614461940281888, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7140571434979262619, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4341314167907705703}
   m_SourcePrefab: {fileID: 100100000, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
 --- !u!224 &4630031351055046537 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5540506774654050568, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
   m_PrefabInstance: {fileID: 910564355998267009}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5277199736038818977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5016614461940281888, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
+--- !u!1 &8050921652492776986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7140571434979262619, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
   m_PrefabInstance: {fileID: 910564355998267009}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &4341314167907705703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050921652492776986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff47992648390be4e81dba572bc998b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7885d736d7c3267468e362911d74faaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instantiateVisual: 1
+  cardLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  moveSpeedLimit: 50
+  selected: 0
+  selectionOffset: 50
+  cardVisualPrefab: {fileID: 2804685291886093335, guid: 7b4977e0142d1534c90ad304420ceeb1, type: 3}
+  cardVisual: {fileID: 0}
+  isHovering: 0
+  isDragging: 0
+  wasDragged: 0
+  PointerEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PointerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PointerUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  BeginDragEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  EndDragEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  SelectEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeleteCard:
+    m_PersistentCalls:
+      m_Calls: []
+  onStartDrag:
+    m_PersistentCalls:
+      m_Calls: []
+  onEndDrag:
+    m_PersistentCalls:
+      m_Calls: []

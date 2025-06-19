@@ -144,7 +144,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1648861802737990549}
-  - {fileID: 6493486247350690445}
   m_Father: {fileID: 6400506998030170469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -185,6 +184,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9037381619146301439}
+  - {fileID: 6493486247350690445}
   - {fileID: 4548734916184628552}
   - {fileID: 8058531171106051144}
   m_Father: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6549240483227128321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedCard: {fileID: 0}
   hoveredCard: {fileID: 0}
-  slotPrefab: {fileID: 924894982576999974, guid: cec8366f565cfdd479de1ba099a3fcee, type: 3}
+  cropCardSlotPrefab: {fileID: 0}
+  itemCardSlotPrefab: {fileID: 0}
   cardsToSpawn: 4
   splineContainer: {fileID: 0}
   swapOffsetThreshold: 0.5
@@ -368,7 +369,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4548734916184628552}
+  m_Father: {fileID: 6400506998030170469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

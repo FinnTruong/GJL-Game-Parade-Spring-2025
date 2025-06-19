@@ -96,8 +96,11 @@ public class Crop : PlaceableObject
         Harvest();
     }
 
+
     private void Harvest()
     {
+        if (InputManager.Instance.isDraggingCard)
+            return;
         if (currentState == CropState.ReadyToHarvest)
         {
             RemoveObject();

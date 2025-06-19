@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour
     private GridTile lastTile;
     private PlaceableObject lastObject;
 
+    public bool isDraggingCard;
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,15 +41,16 @@ public class InputManager : MonoBehaviour
             return;
 
         GetCurrentTargetObject();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isDraggingCard)
         {
+
             if (lastObject != null)
             {
                 lastObject.OnClicked();
                 return;
             }
         }
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0) && !isDraggingCard)
         {
             if (lastObject != null)
             {

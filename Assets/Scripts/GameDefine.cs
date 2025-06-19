@@ -10,11 +10,13 @@ public class GameDefine
 
 public struct PlayerPrefsKey
 {
-    public const string VERSION_CODE = "VERSION_CODE";
-    public const string CURRENT_WATER = "WATER";
-    public const string RESERVOIR_CAPACITY = "RESERVOIR_CAPACITY";
-
     public const string GOLD_LEAF = "GOLD_LEAF";
+}
+
+public enum ResourceType
+{
+    None = 0,
+    GoldLeaf = 1,
 }
 
 public enum CornerType

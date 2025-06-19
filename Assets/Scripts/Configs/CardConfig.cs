@@ -1,18 +1,29 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public enum CardType
 {
     None = 0,
-    Crop = 1,
-    Item = 2,
+
+    //Crop 
+    Lemon = 1000,
+    Blueberry = 1001,
+    Lychee = 1002,
+    LavenderPear = 1003,
+    RubyLime = 1004,
+    ForestGrassApple = 1005,
+
+    //Enhancement
+    Irrigation = 2000,   
+    
 }
 
 [System.Serializable]
 public class CardConfigData
 {
-    public int id;
+    public CardType id;
     public string name;
     public PlaceableObject prefab;
 }
@@ -21,27 +32,20 @@ public class CardConfigData
 [CreateAssetMenu(fileName = "CardConfig", menuName = "Config/CardConfig")]
 public class CardConfig : ScriptableObject
 {
+    [ListDrawerSettings(ShowItemCount = true, ShowFoldout = true, ListElementLabelName = "id")]
+    [Searchable]
     public List<CardConfigData> Collection;
 
     public CardConfigData GetConfig(int id)
     {
-        id = Mathf.Clamp(id, 0, Collection.Count - 1);
         for (int i = 0; i < Collection.Count; i++)
         {
-            if (Collection[i].id == id)
+            if ((int)Collection[i].id == id)
                 return Collection[i];
         }
         return null;
     }
 
-    //public GameObject GetCard(int id)
-    //{
-    //    var cf = GetConfig(id);
-    //    if (cf != null)
-    //        return cf.prefab;
-
-    //    return null;
-    //}
-
-
+    public bool IsCropCard(int id) => id >= 1000 && id < 2000;
+    public bool IsEnhancementCard(int id) => id >= 2000;
 }

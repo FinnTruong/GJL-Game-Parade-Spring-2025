@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8668792473208053135}
   - component: {fileID: 5016614461940281888}
   m_Layer: 11
-  m_Name: LemonCard
+  m_Name: PlaceableCard
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

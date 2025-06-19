@@ -17,21 +17,6 @@ public class CustomCursor : MonoBehaviour
     {
         //Follow Mouse
         transform.position = Input.mousePosition;
-
-        if(Input.GetMouseButton(0) && !Utility.IsPointerOverUI())
-        {
-            if (normalCursor.activeInHierarchy)
-                normalCursor.SetActive(false);
-            if (!harvestCursor.activeInHierarchy)
-                harvestCursor.SetActive(true);
-        }
-        else
-        {
-            if (!normalCursor.activeInHierarchy)
-                normalCursor.SetActive(true);
-            if (harvestCursor.activeInHierarchy)
-                harvestCursor.SetActive(false);
-        }
     }
 
 }

@@ -5,7 +5,9 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class PlaceableCard : Card
-{ 
+{
+    public static Action OnFinishPlacement;
+
     public PlaceableObject objectPrefab;
     public UnityEvent onStartDrag;
     public UnityEvent onEndDrag;
@@ -14,13 +16,41 @@ public class PlaceableCard : Card
     PlaceableObject linkedObject;
     PlacementSystem placementSystem =>PlacementSystem.Instance;
     InputManager inputManager => InputManager.Instance;
-    public static Action OnFinishPlacement;
 
-    public void Initialize(int id)
+    CardConfig cardConfig => ConfigManager.Instance.cardConfig;
+    CropConfig cropConfig => ConfigManager.Instance.cropConfig;
+
+    public override void Initialize(int cardId)
     {
-
+        base.Initialize(cardId);
+        var cf = cardConfig.GetConfig(cardId);
+        if (cf != null)
+        {
+            objectPrefab = cf.prefab;
+        }
     }
 
+    protected override void TryCombine(Card card)
+    {
+        base.TryCombine(card);
+        var crossbredResult = cropConfig.GetCrossbreedingResult(cardID, card.cardID);
+        if (crossbredResult != CardType.None)
+        {
+            Debug.Log("Crossbred Result: " + crossbredResult.ToString());
+            card.Initialize((int)crossbredResult);
+            OnDeleteCard?.Invoke(this);
+        }
+        
+    }
+
+    private void DelinkObject()
+    {
+        rootTile = null;
+        linkedObject.OnCompletePlacementEvent -= DelinkObject;
+        linkedObject = null;
+    }
+
+    #region Drag Logic
     public override void OnBeginDrag(PointerEventData eventData)
     {
         base.OnBeginDrag(eventData);
@@ -76,11 +106,6 @@ public class PlaceableCard : Card
         onEndDrag?.Invoke();
 
     }
+    #endregion
 
-    private void DelinkObject()
-    {
-        rootTile = null;
-        linkedObject.OnCompletePlacementEvent -= DelinkObject;
-        linkedObject = null;
-    }
 }

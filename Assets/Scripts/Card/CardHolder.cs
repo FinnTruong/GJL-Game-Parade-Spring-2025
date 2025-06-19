@@ -12,10 +12,8 @@ public class CardHolder : MonoBehaviour
     [SerializeField] private Card selectedCard;
     [SerializeReference] private Card hoveredCard;
 
-    [SerializeField] private GameObject slotPrefab;
-
     [SerializeField] private CardSlot cropCardSlotPrefab;
-    [SerializeField] private CardSlot itemCardSlotPrefab;
+    [SerializeField] private CardSlot enhancementCardSlotPrefab;
     private RectTransform rect;
 
     [Header("Spawn Settings")]
@@ -25,7 +23,7 @@ public class CardHolder : MonoBehaviour
     [SerializeField] float swapDistanceThreshold = 3f;
     [SerializeField] Transform spawnPos;
     public List<Card> cards;
-    public List<Transform> slots;
+    public List<CardSlot> slots;
 
     bool isCrossing = false;
     [SerializeField] private bool tweenCardReturn = true;
@@ -48,12 +46,12 @@ public class CardHolder : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < cardsToSpawn; i++)
-        {
-            var slot = Instantiate(slotPrefab, transform);
-            slot.name += i;
-            slots.Add(slot.transform);
-        }
+        //for (int i = 0; i < cardsToSpawn; i++)
+        //{
+        //    var slot = Instantiate(slotPrefab, transform);
+        //    slot.name += i;
+        //    slots.Add(slot.transform);
+        //}
 
         rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>().ToList();
@@ -103,8 +101,8 @@ public class CardHolder : MonoBehaviour
             Vector3 dir = spline.EvaluateTangent(p);
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            slots[i].DOMove(splinePosition,0.25f);
-            slots[i].DORotateQuaternion(rotation, 0.25f);
+            slots[i].transform.DOMove(splinePosition,0.25f);
+            slots[i].transform.DORotateQuaternion(rotation, 0.25f);
         }
     }
 
@@ -114,21 +112,30 @@ public class CardHolder : MonoBehaviour
         if (cf == null)
             return;
 
+        CardSlot slot = new();
 
-        var slot = Instantiate(cropCardSlotPrefab, transform);
+        if(cardConfig.IsCropCard(id))
+        {
+            slot = Instantiate(cropCardSlotPrefab, transform);
+        }
+        else if(cardConfig.IsEnhancementCard(id))
+        {
+            slot = Instantiate(enhancementCardSlotPrefab, transform);
+        }
+
         slot.Initialize(id);
-        BindSlotToHand(slot.gameObject);
+        BindSlotToHand(slot);
 
     }
 
     Sequence addCardSequence;
 
     [Button]
-    public void BindSlotToHand(GameObject slot)
+    public void BindSlotToHand(CardSlot slot)
     {        
         slot.transform.position = spawnPos.position;
         slot.name += slots.Count - 1;
-        slots.Add(slot.transform);
+        slots.Add(slot);
         var card = slot.GetComponentInChildren<Card>();
         cards.Add(card);
         card.PointerEnterEvent.AddListener(CardPointerEnter);
@@ -187,9 +194,11 @@ public class CardHolder : MonoBehaviour
 
     void DeleteCard(Card card)
     {
+        var slot = card.GetComponentInParent<CardSlot>();
+        slot.RemoveFromHand();
         cards.Remove(card);
-        slots.Remove(card.transform.parent);
-        Destroy(card.transform.parent.gameObject);
+        slots.Remove(slot);
+        Destroy(slot.gameObject);
         UpdateSlotsPosition();
     }
 

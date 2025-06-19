@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class CardSlot : MonoBehaviour
 {
-    [SerializeField] PlaceableCard card;
+    public int cardId;
+    [SerializeField] Card card;
 
-    CardConfig cardConfig => ConfigManager.Instance.cardConfig;
+    UserData userData => GameManager.Instance.userData;
 
     public virtual void Initialize(int cardId)
     {
-        var cf = cardConfig.GetConfig(cardId);
-        if(cf != null)
-        {
-            card.objectPrefab = cf.prefab;
-        }
+        this.cardId = cardId;
+        card.Initialize(cardId);
     }
+
+    public virtual void RemoveFromHand()
+    {
+        userData.RemoveCardFromHand(cardId);
+    }    
 }

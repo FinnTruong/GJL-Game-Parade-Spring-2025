@@ -12,7 +12,9 @@ public class HUDView : UIView
 
     public void DrawRandomCard()
     {
-        int id = Random.Range(0, 6);
+        if (userData.CurrentHand.Count > 5)
+            return;
+        int id = (int)userData.AvailableCards.GetRandomElement();
         userData.AddCardToHand(id);
     }
 }

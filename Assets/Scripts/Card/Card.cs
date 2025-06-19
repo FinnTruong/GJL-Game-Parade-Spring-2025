@@ -46,6 +46,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
     [HideInInspector] public UnityEvent<Card> OnDeleteCard;
 
+    public CardType cardID;
     Card hoverOverCard;
 
     void Start()
@@ -61,10 +62,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         cardVisual.Initialize(this);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         //ClampPosition();
-
         if (isDragging)
         {
             Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - offset;
@@ -73,6 +73,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             transform.Translate(velocity * Time.deltaTime);
         }
     }
+
+    public virtual void Initialize(int id) { cardID = (CardType)id; }
 
     void ClampPosition()
     {
@@ -91,8 +93,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         isDragging = true;
         //canvas.GetComponent<GraphicRaycaster>().enabled = false;
         imageComponent.raycastTarget = false;
-
         wasDragged = true;
+        InputManager.Instance.isDraggingCard = true;
     }
 
     public virtual void OnDrag(PointerEventData eventData)
@@ -104,6 +106,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         EndDragEvent.Invoke(this);
         isDragging = false;
+        InputManager.Instance.isDraggingCard = false;
         canvas.GetComponent<GraphicRaycaster>().enabled = true;
         imageComponent.raycastTarget = true;
 
@@ -116,8 +119,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             wasDragged = false;
             if(hoverOverCard != null)
             {
-                OnDeleteCard?.Invoke(this);
-                hoverOverCard.cardVisual.Combine();
+                TryCombine(hoverOverCard);
             }
         }
     }
@@ -130,6 +132,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         else
             hoverOverCard = null;
     }
+
+    protected virtual void TryCombine(Card card)
+    {
+
+    }    
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
@@ -158,12 +165,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         //if (eventData.button != PointerEventData.InputButton.Left)
         //    return;
 
-        //pointerUpTime = Time.time;
-
-        //PointerUpEvent.Invoke(this, pointerUpTime - pointerDownTime > .2f);
-
-        //if (pointerUpTime - pointerDownTime > .2f)
-        //    return;
+        pointerUpTime = Time.time;
+        PointerUpEvent.Invoke(this, pointerUpTime - pointerDownTime > .2f);
 
 
         //if (wasDragged)

@@ -224,6 +224,15 @@ public class CardVisual : MonoBehaviour
             transform.DOScale(startScale, scaleTransition).SetEase(scaleEase);
     }
 
+    private void PointerDown(Card card)
+    {
+        if (scaleAnimations)
+            transform.DOScale(startScale * scaleOnSelect, scaleTransition).SetEase(scaleEase);
+
+        visualShadow.localPosition += (-Vector3.up * shadowOffset);
+        shadowCanvas.overrideSorting = false;
+    }
+
     private void PointerUp(Card card, bool longPress)
     {
         if(scaleAnimations)
@@ -234,14 +243,7 @@ public class CardVisual : MonoBehaviour
         shadowCanvas.overrideSorting = true;
     }
 
-    private void PointerDown(Card card)
-    {
-        if(scaleAnimations)
-            transform.DOScale(startScale * scaleOnSelect, scaleTransition).SetEase(scaleEase);
-            
-        visualShadow.localPosition += (-Vector3.up * shadowOffset);
-        shadowCanvas.overrideSorting = false;
-    }
+
 
     public void Combine()
     {
