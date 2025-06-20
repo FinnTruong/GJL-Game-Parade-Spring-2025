@@ -12,7 +12,8 @@ public class ResearchSlot : MonoBehaviour
     [SerializeField] GameObject checkmark;
 
     UserData userData => GameManager.Instance.userData;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    ResearchConfig researchConfig => ConfigManager.Instance.researchConfig;
+
     void Start()
     {
         userData.OnResearchAdded += UpdateUI;
@@ -25,8 +26,7 @@ public class ResearchSlot : MonoBehaviour
 
 
     void UpdateUI()
-    {
-
+    {       
     }
     
 }

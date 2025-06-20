@@ -7,9 +7,27 @@ public partial class UserData
     public System.Action OnXpChanged;
     public System.Action OnLevelChanged;
 
-    public int Xp;
-    public int Level;
+    UserLevelConfig userLevelConfig => ConfigManager.Instance.userLevelConfig;
 
+    private int xp;
+    public int Xp
+    {
+        get => xp;
+        set
+        {
+            xp = value;
+            OnXpChanged?.Invoke();
+        }
+    }
+
+    public int Level => userLevelConfig.GetLevelFromXp(xp);
+    public Vector2 CurrentXpRange => userLevelConfig.GetLevelXpRange(Level);
+
+
+    public int GetLevelFromXp(int xp)
+    {
+        return 1;
+    }
 
     public void Load()
     {

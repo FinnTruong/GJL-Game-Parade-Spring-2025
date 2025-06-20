@@ -27,6 +27,7 @@ public class BindTextToResources : MonoBehaviour
     void Start()
     {
         userData.OnGoldLeafChanged += OnResourceChanged;
+        
     }
 
     private void OnDestroy()

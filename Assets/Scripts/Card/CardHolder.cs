@@ -106,7 +106,7 @@ public class CardHolder : MonoBehaviour
         }
     }
 
-    public void AddCardToHand(int id)
+    public void AddCardToHand(CardType id)
     {
         var cf = cardConfig.GetConfig(id);
         if (cf == null)
@@ -114,11 +114,11 @@ public class CardHolder : MonoBehaviour
 
         CardSlot slot = new();
 
-        if(cardConfig.IsCropCard(id))
+        if(cardConfig.IsCropCard((int)id))
         {
             slot = Instantiate(cropCardSlotPrefab, transform);
         }
-        else if(cardConfig.IsEnhancementCard(id))
+        else if(cardConfig.IsEnhancementCard((int)id))
         {
             slot = Instantiate(enhancementCardSlotPrefab, transform);
         }

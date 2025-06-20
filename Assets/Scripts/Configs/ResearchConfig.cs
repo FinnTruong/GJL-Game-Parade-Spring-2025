@@ -18,6 +18,7 @@ public struct ResearchConfigData
 [CreateAssetMenu(fileName = "ResearchConfig", menuName = "Config/ResearchConfig")]
 public class ResearchConfig : SerializedScriptableObject
 {
+    [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.Foldout)]
     public Dictionary<ResearchType, ResearchConfigData> Collection;
 
     public bool HasRevealed(ResearchType type, int currentLevel)

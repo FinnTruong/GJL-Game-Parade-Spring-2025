@@ -16,7 +16,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 21300000, guid: c885a5cd50559cd438461827ec89bc4c, type: 3}
+    - {fileID: 21300000, guid: 4eb7bb7a2212fa341bcc62c8c80ae4cc, type: 3}
+    - {fileID: 21300000, guid: 43b38a735a73fd34c9be7559f589d698, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -41,7 +42,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -53,7 +54,7 @@ MonoBehaviour:
       Data: ResearchConfigData, Assembly-CSharp
     - Name: revealAtLevel
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: title
       Entry: 1
       Data: Blueberry
@@ -95,13 +96,61 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: $v
       Entry: 7
       Data: ResearchConfigData, Assembly-CSharp
     - Name: revealAtLevel
       Entry: 3
       Data: 0
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: icon
+      Entry: 10
+      Data: 1
+    - Name: unlockPrice
+      Entry: 3
+      Data: 0
+    - Name: pinColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: ResearchConfigData, Assembly-CSharp
+    - Name: revealAtLevel
+      Entry: 3
+      Data: 2
     - Name: title
       Entry: 6
       Data: 

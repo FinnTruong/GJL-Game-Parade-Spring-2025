@@ -1,12 +1,10 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
-using System.Collections;
-using UnityEngine.EventSystems;
-using Unity.Collections;
+
 using UnityEngine.UI;
-using Unity.VisualScripting;
-using static UnityEngine.GraphicsBuffer;
+using Sirenix.OdinInspector;
+
 
 public class CardVisual : MonoBehaviour
 {
@@ -14,6 +12,7 @@ public class CardVisual : MonoBehaviour
 
     [Header("Card")]
     public Card parentCard;
+    public CardAppearance cardAppearance;
     private Transform cardTransform;
     private Vector3 rotationDelta;
     private int savedIndex;
@@ -27,7 +26,6 @@ public class CardVisual : MonoBehaviour
     private Canvas shadowCanvas;
     [SerializeField] private Transform shakeParent;
     [SerializeField] private Transform tiltParent;
-    [SerializeField] private Image cardImage;
 
     [Header("Follow Parameters")]
     [SerializeField] private float followSpeed = 30;
@@ -62,26 +60,38 @@ public class CardVisual : MonoBehaviour
     [Header("Curve")]
     [SerializeField] private CurveParameters curve;
 
+
     private float curveYOffset;
     private float curveRotationOffset;
     private Coroutine pressCoroutine;
 
     private Vector3 startScale;
 
+    CardType cardId;
+
     private void Start()
     {
         shadowDistance = visualShadow.localPosition;
         startScale = transform.localScale;
+
+        canvas = GetComponent<Canvas>();
+        shadowCanvas = visualShadow.GetComponent<Canvas>();
     }
 
     public void Initialize(Card target, int index = 0)
     {
-        //Declarations
+        cardId = target.cardID;
+
         parentCard = target;
         cardTransform = target.transform;
-        canvas = GetComponent<Canvas>();
-        shadowCanvas = visualShadow.GetComponent<Canvas>();
 
+        AddEventListener();
+        InitializeAppearance();
+        initalize = true;
+    }
+
+    public void AddEventListener()
+    {
         //Event Listening
         parentCard.PointerEnterEvent.AddListener(PointerEnter);
         parentCard.PointerExitEvent.AddListener(PointerExit);
@@ -90,29 +100,14 @@ public class CardVisual : MonoBehaviour
         parentCard.PointerDownEvent.AddListener(PointerDown);
         parentCard.PointerUpEvent.AddListener(PointerUp);
         parentCard.SelectEvent.AddListener(Select);
-
-        SetAppearance();
-
-        //Initialization
-        initalize = true;
-
-
     }
 
-    public void SetAppearance()
+    public void InitializeAppearance()
     {
-
+        cardAppearance.Initialized(cardId);
     }
 
-    public void UpdateTransform()
-    {
-        transform.rotation = parentCard.transform.rotation;
-    }
 
-    public void UpdateIndex(int length)
-    {
-        transform.SetSiblingIndex(parentCard.transform.parent.GetSiblingIndex());
-    }
 
     void Update()
     {
@@ -124,7 +119,16 @@ public class CardVisual : MonoBehaviour
         //CardTilt();
 
     }
+    #region Logic
+    public void UpdateTransform()
+    {
+        transform.rotation = parentCard.transform.rotation;
+    }
 
+    public void UpdateIndex(int length)
+    {
+        transform.SetSiblingIndex(parentCard.transform.parent.GetSiblingIndex());
+    }
     private void HandPositioning()
     {
         curveYOffset = (curve.positioning.Evaluate(parentCard.NormalizedPosition()) * curve.positioningInfluence) * parentCard.SiblingAmount();
@@ -243,7 +247,7 @@ public class CardVisual : MonoBehaviour
         shadowCanvas.overrideSorting = true;
     }
 
-
+    #endregion
 
     public void Combine()
     {

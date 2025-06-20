@@ -761,8 +761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 2d01180000004f006e0043006f006d0070006c0065007400650050006c006100630065006d0065006e0074004500760065006e0074002d01120000004f006e00430072006f0070004d006100740075007200650064004500760065006e007400010110000000730070007200690074006500440069006300740069006f006e006100720079002f000000000172000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00440069006300740069006f006e00610072007900600032005b005b0043006f0072006e006500720054007900700065002c00200041007300730065006d0062006c0079002d004300530068006100720070005d002c005b0050006c006f00740053007000720069007400650044006100740061002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c00690062000000000001010800000063006f006d00700061007200650072002f01000000015a000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e0045006e0075006d0045007100750061006c0069007400790043006f006d0070006100720065007200600031005b005b0043006f0072006e006500720054007900700065002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c0069006200010000000600000000000000000705060500000000000000042e1d010200000024006b000000000000000000010102000000240076002f02000000011f00000050006c006f00740053007000720069007400650044006100740061002c00200041007300730065006d0062006c0079002d00430053006800610072007000020000000301080000006c006f00630061006c0050006f0073002f03000000012b00000055006e0069007400790045006e00670069006e0065002e0056006500630074006f00720033002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c006500200000000020000000002000004040050b010a00000070006c006f007400530070007200690074006500000000000b011000000070006c006f00740042006f007200640065007200530070007200690074006500010000000505042e1d010200000024006b000100000000000000010102000000240076003002000000030000000301080000006c006f00630061006c0050006f0073003003000000200000000020000000002000004040050b010a00000070006c006f007400530070007200690074006500020000000b011000000070006c006f00740042006f007200640065007200530070007200690074006500030000000505042e1d010200000024006b000200000000000000010102000000240076003002000000040000000301080000006c006f00630061006c0050006f0073003003000000200000000020000000002000004040050b010a00000070006c006f007400530070007200690074006500040000000b011000000070006c006f00740042006f007200640065007200530070007200690074006500050000000505042e1d010200000024006b000400000000000000010102000000240076003002000000050000000301080000006c006f00630061006c0050006f007300300300000020b81e85bd20000000002000004040050b010a00000070006c006f007400530070007200690074006500060000000b011000000070006c006f00740042006f007200640065007200530070007200690074006500070000000505042e1d010200000024006b000300000000000000010102000000240076003002000000060000000301080000006c006f00630061006c0050006f007300300300000020b81e853d20000000002000004040050b010a00000070006c006f007400530070007200690074006500080000000b011000000070006c006f00740042006f0072006400650072005300700072006900740065000900000005050705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: 3942a3031e02b964f8e291ce61c324d5, type: 3}
     - {fileID: 21300000, guid: a3c1f1df22d59c34db2a8721dd9ab236, type: 3}
@@ -778,7 +778,219 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: OnCompletePlacementEvent
+      Entry: 6
+      Data: 
+    - Name: OnCropMaturedEvent
+      Entry: 6
+      Data: 
+    - Name: spriteDictionary
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[CornerType, Assembly-CSharp],[PlotSpriteData,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CornerType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|PlotSpriteData, Assembly-CSharp
+    - Name: localPos
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plotSprite
+      Entry: 10
+      Data: 0
+    - Name: plotBorderSprite
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|PlotSpriteData, Assembly-CSharp
+    - Name: localPos
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plotSprite
+      Entry: 10
+      Data: 2
+    - Name: plotBorderSprite
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|PlotSpriteData, Assembly-CSharp
+    - Name: localPos
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plotSprite
+      Entry: 10
+      Data: 4
+    - Name: plotBorderSprite
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 5|PlotSpriteData, Assembly-CSharp
+    - Name: localPos
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -0.065
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plotSprite
+      Entry: 10
+      Data: 6
+    - Name: plotBorderSprite
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 6|PlotSpriteData, Assembly-CSharp
+    - Name: localPos
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.065
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: plotSprite
+      Entry: 10
+      Data: 8
+    - Name: plotBorderSprite
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   sr: {fileID: 7359329297431139001}
   tileCoords: []
   rootTile: {fileID: 0}

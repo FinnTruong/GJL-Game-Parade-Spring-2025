@@ -39,7 +39,7 @@ public class CropConfig : SerializedScriptableObject
             if (!Collection[i].hasRecipe)
                 continue;
 
-            if (Collection[i].parents.Contains(parentA) && Collection[i].parents.Contains(parentB))
+            if (Collection[i].parents.Contains(parentA) && Collection[i].parents.Contains(parentB) && parentA != parentB)
                 return Collection[i].id;            
         }
 

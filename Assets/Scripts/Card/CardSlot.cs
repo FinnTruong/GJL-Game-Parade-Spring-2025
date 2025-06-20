@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class CardSlot : MonoBehaviour
 {
-    public int cardId;
+    public CardType cardId;
     [SerializeField] Card card;
 
     UserData userData => GameManager.Instance.userData;
 
-    public virtual void Initialize(int cardId)
+    public virtual void Initialize(CardType cardId)
     {
         this.cardId = cardId;
         card.Initialize(cardId);

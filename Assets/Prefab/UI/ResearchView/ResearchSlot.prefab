@@ -333,11 +333,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchType: 0
-  availableRoot: {fileID: 0}
-  unavailableRoot: {fileID: 0}
-  priceText: {fileID: 0}
-  unlockButton: {fileID: 0}
-  checkmark: {fileID: 0}
+  availableRoot: {fileID: 7302545330878378410}
+  unavailableRoot: {fileID: 911310973387739841}
+  priceText: {fileID: 5072645862075469426}
+  unlockButton: {fileID: 2124446418734243054}
+  checkmark: {fileID: 39409774159084076}
 --- !u!1 &5157972378407438532
 GameObject:
   m_ObjectHideFlags: 0

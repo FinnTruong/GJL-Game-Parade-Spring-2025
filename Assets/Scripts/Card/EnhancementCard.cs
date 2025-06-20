@@ -14,7 +14,7 @@ public class EnhancementCard : Card
     PlacementSystem placementSystem => PlacementSystem.Instance;
     InputManager inputManager => InputManager.Instance;
 
-    public override void Initialize(int id)
+    public override void Initialize(CardType id)
     {
         base.Initialize(id);
     }

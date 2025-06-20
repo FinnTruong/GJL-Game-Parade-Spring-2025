@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 924894982576999974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4630031351055046537}
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 355}
+  m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8351790516808900445
 CanvasRenderer:
@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f5f92d4a6eebf4b9fadb2b3490aa5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardId: 0
   card: {fileID: 5277199736038818977}
 --- !u!1001 &910564355998267009
 PrefabInstance:
@@ -97,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5540506774654050568, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 265
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 5540506774654050568, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 355
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5540506774654050568, guid: 47063cda4ce290e44a6c477cbf6b03d8, type: 3}
       propertyPath: m_LocalPosition.x

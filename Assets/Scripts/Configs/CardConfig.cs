@@ -20,11 +20,14 @@ public enum CardType
     
 }
 
+
 [System.Serializable]
 public class CardConfigData
 {
     public CardType id;
     public string name;
+    [PreviewField]
+    public Sprite icon;
     public PlaceableObject prefab;
 }
 
@@ -36,15 +39,16 @@ public class CardConfig : ScriptableObject
     [Searchable]
     public List<CardConfigData> Collection;
 
-    public CardConfigData GetConfig(int id)
+    public CardConfigData GetConfig(CardType id)
     {
         for (int i = 0; i < Collection.Count; i++)
         {
-            if ((int)Collection[i].id == id)
+            if (Collection[i].id == id)
                 return Collection[i];
         }
         return null;
     }
+
 
     public bool IsCropCard(int id) => id >= 1000 && id < 2000;
     public bool IsEnhancementCard(int id) => id >= 2000;

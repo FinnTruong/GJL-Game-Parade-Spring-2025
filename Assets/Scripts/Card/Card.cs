@@ -74,7 +74,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         }
     }
 
-    public virtual void Initialize(int id) { cardID = (CardType)id; }
+    public virtual void Initialize(CardType id) 
+    { 
+        cardID = id;
+        if (cardVisual != null)
+            cardVisual.Initialize(this);
+    }
 
     void ClampPosition()
     {

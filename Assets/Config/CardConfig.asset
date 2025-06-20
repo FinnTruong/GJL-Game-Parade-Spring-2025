@@ -14,23 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collection:
   - id: 1000
-    name: Lemon
+    name: Lemon Seed
+    icon: {fileID: 21300000, guid: dab72f331fb459548b6900d44a203736, type: 3}
     prefab: {fileID: 7119932107718505958, guid: d250e8bd107c41b4ea7579d0dd7c85d1, type: 3}
   - id: 1001
-    name: Blueberry
+    name: Blueberry Seed
+    icon: {fileID: 21300000, guid: 4eb7bb7a2212fa341bcc62c8c80ae4cc, type: 3}
     prefab: {fileID: 7119932107718505958, guid: fe642e6cf63e83843b8b20ccb57e474c, type: 3}
   - id: 1002
-    name: Lychee
+    name: Lychee Seed
+    icon: {fileID: 21300000, guid: 43b38a735a73fd34c9be7559f589d698, type: 3}
     prefab: {fileID: 7119932107718505958, guid: 4a2280d252db6b245a994d13b10394a1, type: 3}
   - id: 1003
-    name: Lavender Pear
+    name: Lavender Pear Seed
+    icon: {fileID: 21300000, guid: 3337ac60c8db52546891f53e6729ebc8, type: 3}
     prefab: {fileID: 7119932107718505958, guid: 2759531c41333114c84c2a8fe184f453, type: 3}
   - id: 1004
-    name: Ruby Lime
+    name: Ruby Lime Seed
+    icon: {fileID: 21300000, guid: 7d925c4d90ce7d543afa821168b295b1, type: 3}
     prefab: {fileID: 7119932107718505958, guid: 9371bd80174734d44a520d0e9ac3a67a, type: 3}
   - id: 1005
-    name: Forest Grass Apple
+    name: Grass Apple Seed
+    icon: {fileID: 21300000, guid: c08ade477017fa84e9906505f9b4b8fd, type: 3}
     prefab: {fileID: 7119932107718505958, guid: febf1c22010a85a4eb07f6f170e38421, type: 3}
   - id: 2000
     name: Irrigation
+    icon: {fileID: 0}
     prefab: {fileID: 0}

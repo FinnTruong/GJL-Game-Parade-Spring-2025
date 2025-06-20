@@ -198,7 +198,7 @@ MonoBehaviour:
   moveSpeedLimit: 50
   selected: 0
   selectionOffset: 50
-  cardVisualPrefab: {fileID: 2804685291886093335, guid: 7b4977e0142d1534c90ad304420ceeb1, type: 3}
+  cardVisualPrefab: {fileID: 2804685291886093335, guid: 079caf41a27052748a821b46169197f4, type: 3}
   cardVisual: {fileID: 0}
   isHovering: 0
   isDragging: 0
@@ -227,6 +227,7 @@ MonoBehaviour:
   OnDeleteCard:
     m_PersistentCalls:
       m_Calls: []
+  cardID: 0
   onStartDrag:
     m_PersistentCalls:
       m_Calls: []

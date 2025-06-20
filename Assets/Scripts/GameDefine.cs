@@ -70,7 +70,7 @@ public enum ResearchType
     Blueberry = 1,
     Lychee = 2,
     Pollination = 3,
-    Demolition = 4,
+    Irrigation = 4,
     Crossbreeding = 5,
     Fertilizer = 6,
     Mogul = 7,

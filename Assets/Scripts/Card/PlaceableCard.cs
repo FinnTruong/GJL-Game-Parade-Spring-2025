@@ -20,7 +20,7 @@ public class PlaceableCard : Card
     CardConfig cardConfig => ConfigManager.Instance.cardConfig;
     CropConfig cropConfig => ConfigManager.Instance.cropConfig;
 
-    public override void Initialize(int cardId)
+    public override void Initialize(CardType cardId)
     {
         base.Initialize(cardId);
         var cf = cardConfig.GetConfig(cardId);
@@ -28,6 +28,7 @@ public class PlaceableCard : Card
         {
             objectPrefab = cf.prefab;
         }
+
     }
 
     protected override void TryCombine(Card card)
@@ -37,7 +38,7 @@ public class PlaceableCard : Card
         if (crossbredResult != CardType.None)
         {
             Debug.Log("Crossbred Result: " + crossbredResult.ToString());
-            card.Initialize((int)crossbredResult);
+            card.Initialize(crossbredResult);
             OnDeleteCard?.Invoke(this);
         }
         

@@ -14,7 +14,7 @@ public class HUDView : UIView
     {
         if (userData.CurrentHand.Count > 5)
             return;
-        int id = (int)userData.AvailableCards.GetRandomElement();
+        CardType id = userData.AvailableCards.GetRandomElement();
         userData.AddCardToHand(id);
     }
 }

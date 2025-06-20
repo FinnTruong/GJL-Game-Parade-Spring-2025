@@ -3,7 +3,7 @@ using UnityEngine;
 public class CollectibleObject : MonoBehaviour
 {
     UserData userData => GameManager.Instance.userData;
-    int id;
+    CardType id;
 
     private void OnMouseDown()
     {
