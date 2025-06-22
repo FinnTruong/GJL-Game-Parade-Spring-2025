@@ -46,28 +46,10 @@ public class CardHolder : MonoBehaviour
 
     void Start()
     {
-        //for (int i = 0; i < cardsToSpawn; i++)
-        //{
-        //    var slot = Instantiate(slotPrefab, transform);
-        //    slot.name += i;
-        //    slots.Add(slot.transform);
-        //}
-
         rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>().ToList();
 
         int cardCount = 0;
-
-        foreach (Card card in cards)
-        {
-            card.PointerEnterEvent.AddListener(CardPointerEnter);
-            card.PointerExitEvent.AddListener(CardPointerExit);
-            card.BeginDragEvent.AddListener(BeginDrag);
-            card.EndDragEvent.AddListener(EndDrag);
-            card.OnDeleteCard.AddListener(DeleteCard);
-            card.name = cardCount.ToString();
-            cardCount++;
-        }
         UpdateSlotsPosition();
         StartCoroutine(Frame());
 
@@ -112,7 +94,7 @@ public class CardHolder : MonoBehaviour
         if (cf == null)
             return;
 
-        CardSlot slot = new();
+        CardSlot slot = new CardSlot();
 
         if(cardConfig.IsCropCard((int)id))
         {
@@ -125,6 +107,7 @@ public class CardHolder : MonoBehaviour
 
         slot.Initialize(id);
         BindSlotToHand(slot);
+        UpdateSlotsPosition();
 
     }
 
@@ -145,7 +128,6 @@ public class CardHolder : MonoBehaviour
         card.OnDeleteCard.AddListener(DeleteCard);
         card.name = CardCount.ToString();
 
-        UpdateSlotsPosition();
     }
 
     private void PlayAddCardSequence(Transform newCard)
@@ -192,14 +174,17 @@ public class CardHolder : MonoBehaviour
         hoveredCard = null;
     }
 
-    void DeleteCard(Card card)
+    void DeleteCard(Card card, float delay = 0f)
     {
         var slot = card.GetComponentInParent<CardSlot>();
-        slot.RemoveFromHand();
-        cards.Remove(card);
-        slots.Remove(slot);
+        if (card != null && slot != null)
+        {
+            slot.RemoveFromHand();
+            cards.Remove(card);
+            slots.Remove(slot);
+        }
         Destroy(slot.gameObject);
-        UpdateSlotsPosition();
+        DOVirtual.DelayedCall(delay, () => UpdateSlotsPosition());
     }
 
     void Update()

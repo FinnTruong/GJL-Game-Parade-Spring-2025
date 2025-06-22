@@ -148,7 +148,25 @@ public class GridManager : SerializedMonoBehaviour
         if (grid.ContainsKey(topLeftAdjacent) && !grid.ContainsKey(topRightAdjacent) && grid.ContainsKey(bottomLeftAdjacent) && !grid.ContainsKey(bottomRightAdjacent))
             return CornerType.Right;
 
+        if (IsBottomCorner(coord))
+            return CornerType.Bottom;
+
         return CornerType.None;
+    }
+
+
+    private bool IsBottomCorner(Vector3Int coord)
+    {
+        foreach (var tile in grid)
+        {
+            if (tile.Key.x < coord.x)
+                return false;
+
+            if (tile.Key.y < coord.y)
+                return false;
+        }
+
+        return true;
     }
 
     #endregion

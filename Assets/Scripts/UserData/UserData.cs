@@ -12,11 +12,21 @@ public partial class UserData
     private int xp;
     public int Xp
     {
-        get => xp;
+        get => PlayerPrefs.GetInt(PlayerPrefsKey.XP, 0);
         set
         {
+            var lastXpValue = xp;
             xp = value;
             OnXpChanged?.Invoke();
+            PlayerPrefs.SetInt(PlayerPrefsKey.XP, value);
+            var currentLevel = GetLevelFromXp(lastXpValue);
+            var newLevel = GetLevelFromXp(value);
+            if (newLevel > currentLevel)
+            {
+                OnLevelChanged?.Invoke();
+            }
+
+
         }
     }
 
@@ -26,7 +36,7 @@ public partial class UserData
 
     public int GetLevelFromXp(int xp)
     {
-        return 1;
+        return userLevelConfig.GetLevelFromXp(xp);
     }
 
     public void Load()

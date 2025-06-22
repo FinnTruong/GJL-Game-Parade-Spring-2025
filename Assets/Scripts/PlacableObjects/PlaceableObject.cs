@@ -36,6 +36,8 @@ public class PlaceableObject : SerializedMonoBehaviour
         gridManager = FindFirstObjectByType<GridManager>();
     }
 
+    public virtual void InitData(Card cardId) { }
+
     public List<Vector3Int> GetPlacementTileCoord(Vector3Int rootTile)
     {
         List<Vector3Int> result = new();

@@ -11,7 +11,12 @@ public partial class UserData
 
     public List<CardType> CurrentHand = new();
 
-    public List<CardType> AvailableCards = new() { CardType.Lemon, CardType.Blueberry, CardType.Lychee, CardType.Irrigation };
+    public List<CardType> AvailableCards = new() { CardType.Lemon };
+
+    public float DrawCardPrice = 2f;
+    public int MaxHandSize = 5;
+
+    public bool IsHandFull => CurrentHand.Count >= MaxHandSize;
 
     public void AddCardToHand(CardType id)
     {
@@ -27,5 +32,11 @@ public partial class UserData
             CurrentHand.Remove(id);
             OnHandChanged?.Invoke();
         }
+    }
+
+    public void UnlockCard(CardType cardType)
+    {
+        if (!AvailableCards.Contains(cardType))
+            AvailableCards.Add(cardType);
     }
 }

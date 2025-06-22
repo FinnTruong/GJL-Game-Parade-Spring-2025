@@ -60,6 +60,8 @@ public class CardVisual : MonoBehaviour
     [Header("Curve")]
     [SerializeField] private CurveParameters curve;
 
+    [SerializeField] private ParticleSystem flashFX;
+
 
     private float curveYOffset;
     private float curveRotationOffset;
@@ -68,6 +70,7 @@ public class CardVisual : MonoBehaviour
     private Vector3 startScale;
 
     CardType cardId;
+    int generation;
 
     private void Start()
     {
@@ -81,6 +84,7 @@ public class CardVisual : MonoBehaviour
     public void Initialize(Card target, int index = 0)
     {
         cardId = target.cardID;
+        generation = target.Generation;
 
         parentCard = target;
         cardTransform = target.transform;
@@ -104,7 +108,12 @@ public class CardVisual : MonoBehaviour
 
     public void InitializeAppearance()
     {
-        cardAppearance.Initialized(cardId);
+        cardAppearance.Initialized(cardId, generation);
+    }
+
+    public void PlayFlashVFX()
+    {
+        flashFX.Play();
     }
 
 

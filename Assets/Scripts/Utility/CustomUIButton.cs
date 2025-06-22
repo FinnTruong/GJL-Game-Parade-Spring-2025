@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public enum CustomTransitionType
 {
@@ -54,8 +55,11 @@ public class CustomUIButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public CustomTransitionType transition = CustomTransitionType.None;
 
-    public Sprite normalSprite;
-    public Sprite disableSprite;
+    private bool SpriteTransition => transition == CustomTransitionType.SpriteSwap;
+
+    [ShowIf(nameof(SpriteTransition))] public Sprite normalSprite;
+    [ShowIf(nameof(SpriteTransition))] public Sprite disableSprite;
+
     public bool playSound = true;
 
     public bool isIgnoreAnimate;
@@ -165,17 +169,17 @@ public class CustomUIButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void HighlightButton() 
     {
-        if (image != null) {
-            switch (transition) {
-                case CustomTransitionType.None:
-                    break;
-                case CustomTransitionType.Color:
-                    image.color = highlightedColor;
-                    break;
-                default:
-                    break;
-            }
-        }
+        //if (image != null) {
+        //    switch (transition) {
+        //        case CustomTransitionType.None:
+        //            break;
+        //        case CustomTransitionType.Color:
+        //            image.color = highlightedColor;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
     }
 
     public void ResetButton()

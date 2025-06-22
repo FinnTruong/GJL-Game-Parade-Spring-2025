@@ -18,7 +18,6 @@ public class PlaceableCard : Card
     InputManager inputManager => InputManager.Instance;
 
     CardConfig cardConfig => ConfigManager.Instance.cardConfig;
-    CropConfig cropConfig => ConfigManager.Instance.cropConfig;
 
     public override void Initialize(CardType cardId)
     {
@@ -31,18 +30,18 @@ public class PlaceableCard : Card
 
     }
 
-    protected override void TryCombine(Card card)
-    {
-        base.TryCombine(card);
-        var crossbredResult = cropConfig.GetCrossbreedingResult(cardID, card.cardID);
-        if (crossbredResult != CardType.None)
-        {
-            Debug.Log("Crossbred Result: " + crossbredResult.ToString());
-            card.Initialize(crossbredResult);
-            OnDeleteCard?.Invoke(this);
-        }
+    //protected override void TryCombine(Card card)
+    //{
+    //    base.TryCombine(card);
+    //    //var crossbredResult = cropConfig.GetCrossbreedingResult(cardID, card.cardID);
+    //    //if (crossbredResult != CardType.None)
+    //    //{
+    //    //    Debug.Log("Crossbred Result: " + crossbredResult.ToString());
+    //    //    card.Initialize(crossbredResult);
+    //    //    OnDeleteCard?.Invoke(this);
+    //    //}
         
-    }
+    //}
 
     private void DelinkObject()
     {
@@ -57,6 +56,7 @@ public class PlaceableCard : Card
         base.OnBeginDrag(eventData);
         if (linkedObject == null)
             linkedObject = Instantiate(objectPrefab);
+        linkedObject.InitData(this);
         placementSystem.offset = Vector3.zero;
         placementSystem.StartPlacement(linkedObject);
         onStartDrag?.Invoke();
@@ -97,7 +97,7 @@ public class PlaceableCard : Card
         {
             linkedObject.OnConfirmPlacement();
             linkedObject.OnCompletePlacementEvent += DelinkObject;
-            OnDeleteCard?.Invoke(this);
+            OnDeleteCard?.Invoke(this,0f);
         }
 
         if (rootTile != null)

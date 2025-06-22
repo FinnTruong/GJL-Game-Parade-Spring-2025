@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 [System.Serializable]
 public struct CropData
 {
-    public float growDuration;
+    
 }
 
 public enum CropState
@@ -31,6 +31,7 @@ public class PlotSpriteData
 public class Crop : PlaceableObject
 {
     UserData userData => GameManager.Instance.userData;
+    CropConfig cropConfig => ConfigManager.Instance.cropConfig;
 
     public System.Action OnCropMaturedEvent;
 
@@ -61,9 +62,16 @@ public class Crop : PlaceableObject
     private float growthTimer;
 
     CropState currentState;
+    CardType cardType;
+    int generation;
 
-    private bool IsGrowing => hasStartedGrowing == true && growthTimer < data.growDuration;
-    public float GrowthProgress => growthTimer / data.growDuration;
+    private bool IsGrowing => hasStartedGrowing == true && growthTimer < Duration;
+    public float GrowthProgress => growthTimer / Duration;
+
+    public float LeafYield => (float)(cropConfig.GetConfig(cardType).leafYield * Math.Pow(5, generation));
+    public int XpYield => cropConfig.GetConfig(cardType).xpYield * (generation+1);
+
+    public float Duration = 2f;
 
     protected override void Awake()
     {
@@ -73,16 +81,35 @@ public class Crop : PlaceableObject
         sproutStartScale = sprout.transform.localScale;
     }
 
+    public override void InitData(Card card)
+    {
+        base.InitData(card);
+        cardType = card.cardID;
+        generation = card.Generation;
+        Duration = cropConfig.GetConfig(cardType).matureDuration;
+    }
+
+    public override void SetPreview(bool flag) 
+    {
+        base.SetPreview(flag);
+        if (flag)
+            CropYieldPanel.Instance.ShowPanel(this);
+        else
+            CropYieldPanel.Instance.HidePanel();
+    }
+
     public override void OnConfirmPlacement()
     {
         base.OnConfirmPlacement();
         SetPlacement();
+        CropYieldPanel.Instance.HidePanel();
     }
 
 
     public override void OnCancelPlacement()
     {
         base.OnCancelPlacement();
+        CropYieldPanel.Instance.HidePanel();
     }
     public override void OnTouched()
     {
@@ -96,13 +123,26 @@ public class Crop : PlaceableObject
         Harvest();
     }
 
-
+    Sequence spawnFxSequence;
     private void Harvest()
     {
         if (InputManager.Instance.isDraggingCard)
             return;
         if (currentState == CropState.ReadyToHarvest)
         {
+            AudioManager.Instance.PlaySFX("Harvest");
+            var leafYield = LeafYield;
+            userData.GoldLeaf += leafYield;
+            userData.Xp += XpYield;
+            var spawnLeafPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 0.25f);
+            //var spawnXpPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 0.25f);
+            RewardEffectManager.Instance.SpawnRewardEffect(spawnLeafPos, ResourceType.GoldLeaf, (int)leafYield);
+            //RewardEffectManager.Instance.SpawnRewardEffect(spawnXpPos, ResourceType.Xp, (int)XpYield);
+            //spawnFxSequence?.Complete();
+            //spawnFxSequence = DOTween.Sequence();
+            //spawnFxSequence.AppendCallback(() => RewardEffectManager.Instance.SpawnRewardEffect(spawnLeafPos, ResourceType.GoldLeaf, (int)leafYield));
+            //spawnFxSequence.AppendInterval(0.25f);
+            //spawnFxSequence.AppendCallback(() => RewardEffectManager.Instance.SpawnRewardEffect(spawnLeafPos, ResourceType.Xp, (int)XpYield));
             RemoveObject();
         }
     }
@@ -194,10 +234,10 @@ public class Crop : PlaceableObject
     {
         if(hasStartedGrowing)
         {
-            if(growthTimer < data.growDuration)
+            if(growthTimer < Duration)
             {
                 growthTimer += Time.deltaTime;
-                if(growthTimer >= data.growDuration)
+                if(growthTimer >= Duration)
                 {
                     OnCropMatured();
                 }

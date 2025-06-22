@@ -20,8 +20,11 @@ public struct CropConfigData
     [ShowIf(nameof(hasRecipe))]
     public List<CardType> parents;
     [TitleGroup("Data")]
-    [ListDrawerSettings(ShowFoldout = true)]
-    public List<CropRewardData> rewardData;
+    public float matureDuration;
+    public float leafYield;
+    public int xpYield;
+    //[ListDrawerSettings(ShowFoldout = true)]
+    //public List<CropRewardData> rewardData;
 }
 
 
@@ -31,6 +34,17 @@ public class CropConfig : SerializedScriptableObject
     [Searchable]
     [ListDrawerSettings(ShowFoldout = true, ListElementLabelName = "id")]
     public List<CropConfigData> Collection;
+
+    public CropConfigData GetConfig(CardType id)
+    {
+        for (int i = 0; i < Collection.Count; i++)
+        {
+            if (Collection[i].id == id)
+                return Collection[i];
+        }
+
+        return Collection[0];
+    }
 
     public CardType GetCrossbreedingResult(CardType parentA, CardType parentB)
     {

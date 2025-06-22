@@ -9,6 +9,8 @@ public partial class UserData
 
     public List<CropType> CropPool = new() { CropType.Lemon };
 
+    public int StartCropGeneration = 0;
+    public int MaxCropGeneration = 2;
 
     public void AddToCropPool(CropType cropType)
     {

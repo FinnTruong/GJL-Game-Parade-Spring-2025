@@ -11,6 +11,7 @@ public class CardSlot : MonoBehaviour
     {
         this.cardId = cardId;
         card.Initialize(cardId);
+        card.SetGeneration(userData.StartCropGeneration);
     }
 
     public virtual void RemoveFromHand()

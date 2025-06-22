@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public static class Utility
 {
@@ -203,8 +202,15 @@ public static class Utility
 
     public static string MoneyToString(this int money)
     {
+        if (money == 0)
+            return "FREE";
         var longValue = (float)money;
         return longValue.MoneyToString();
+    }
+
+    public static string TimeToString(this float time)
+    {
+        return $"{Mathf.RoundToInt(time)}s";
     }
     #endregion
     #region

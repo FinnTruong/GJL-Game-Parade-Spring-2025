@@ -335,9 +335,15 @@ MonoBehaviour:
   researchType: 0
   availableRoot: {fileID: 7302545330878378410}
   unavailableRoot: {fileID: 911310973387739841}
+  conditionText: {fileID: 5153407743319921209}
+  titleText: {fileID: 1744912670302310709}
+  descriptionText: {fileID: 6487026736543685912}
+  icon: {fileID: 7080986679134009164}
   priceText: {fileID: 5072645862075469426}
   unlockButton: {fileID: 2124446418734243054}
   checkmark: {fileID: 39409774159084076}
+  shineEffect: {fileID: 3439870151502047667}
+  pin: {fileID: 6874857821819818216}
 --- !u!1 &5157972378407438532
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,8 +378,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48.244, y: 63.5}
-  m_SizeDelta: {x: 232.0309, y: 55.4205}
+  m_AnchoredPosition: {x: 92.789, y: 72.6}
+  m_SizeDelta: {x: 321.12, y: 41.458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3610929161676140767
 CanvasRenderer:
@@ -430,13 +436,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.9
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMax: 30
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -614,9 +620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'BECOME AMATEUR FARMER
-
-    TO REVEAL'
+  m_text: EARN <sprite=0><sprite=0><sprite=0>To REVEAL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b13c05d394e013847a19131b37cbf6c0, type: 2}
   m_sharedMaterial: {fileID: 7417148005553868047, guid: b13c05d394e013847a19131b37cbf6c0, type: 2}
@@ -635,7 +639,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 2afc3b2ed06c90740b2618032e44856a, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -649,7 +653,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1168,9 +1172,9 @@ RectTransform:
   - {fileID: 8796741929863518971}
   - {fileID: 3778434461372472404}
   - {fileID: 8588088351709185536}
-  - {fileID: 5875568049990912331}
   - {fileID: 1728589877639765681}
   - {fileID: 5030549130365817713}
+  - {fileID: 5875568049990912331}
   - {fileID: 7468289761623371017}
   - {fileID: 9125693520030095056}
   m_Father: {fileID: 901163604748728270}
@@ -1350,7 +1354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175.2, y: -9.521309}
+  m_AnchoredPosition: {x: -170.1, y: -5.3751}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8017451273122916277
@@ -1381,7 +1385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 59bda57552afa9f4dad76af1822abc16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4eb7bb7a2212fa341bcc62c8c80ae4cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1575,7 +1579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92.789, y: -24.365}
+  m_AnchoredPosition: {x: 92.789, y: -16.752207}
   m_SizeDelta: {x: 321.12, y: 137.2459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9034167387139448943
@@ -1779,7 +1783,7 @@ MonoBehaviour:
   m_SamplingWidth: 1
   m_SamplingScale: 1
   m_TransitionFilter: 4
-  m_TransitionRate: 0.14950046
+  m_TransitionRate: 1
   m_TransitionReverse: 0
   m_TransitionTex: {fileID: 2800000, guid: 944c3fa29663042a1bdc35546c2eda58, type: 3}
   m_TransitionTexScale: {x: 1, y: 1}
@@ -1965,7 +1969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableWhenPause: 0
   highlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-  disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5}
+  disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1977,7 +1981,7 @@ MonoBehaviour:
   animatedCurve: 26
   enableVibration: 0
   shrinkTime: 0.3
-  transition: 0
+  transition: 1
   normalSprite: {fileID: 0}
   disableSprite: {fileID: 0}
   playSound: 1

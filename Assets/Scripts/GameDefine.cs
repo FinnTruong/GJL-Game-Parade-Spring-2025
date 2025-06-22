@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class GameDefine
 {
-
+    public static Color DEFAULT_COLOR = new Color(1, 1, 1, 1);
+    public static Color PALE_RED = new Color(255, 112 , 102, 255) / 255f;
 }
 
 public struct PlayerPrefsKey
 {
     public const string GOLD_LEAF = "GOLD_LEAF";
+    public const string XP = "XP";
 }
 
 public enum ResourceType
 {
-    None = 0,
-    GoldLeaf = 1,
+    None = -1,
+    GoldLeaf = 0,
+    Xp = 1,
 }
 
 public enum CornerType
@@ -46,23 +49,8 @@ public enum DraggedDirection
     Right,
 }
 
-public enum ToolType
-{
-    None = 0,
-    WateringCan = 1,
-    Sickle = 2,
-    Inspect = 3,
-}
 
-public enum TitleType
-{
-    None = 0,
-    Amateur= 1,
-    Expert = 2,
-    Trailblazer = 3,
-    Mogul = 4,
 
-}
 
 public enum ResearchType
 {
@@ -70,10 +58,11 @@ public enum ResearchType
     Blueberry = 1,
     Lychee = 2,
     Pollination = 3,
-    Irrigation = 4,
+    Strategist = 4,
     Crossbreeding = 5,
-    Fertilizer = 6,
-    Mogul = 7,
+    LimitBreak = 6,
+    GeneticEvolution = 7,
+    Expedition = 8,
 }
 
 public enum CropType

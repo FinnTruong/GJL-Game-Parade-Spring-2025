@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: UserLevelConfig
   m_EditorClassIdentifier: 
   Collection:
-  - level: 1
+  - level: 0
     title: Amateur Farmer
     requiredXp: 0
-  - level: 2
+  - level: 1
     title: Getting The Hang Of It
-    requiredXp: 100
+    requiredXp: 5
+  - level: 2
+    title: Green Thumb
+    requiredXp: 50
   - level: 3
-    title: Trailblazing Biologist
-    requiredXp: 1000
+    title: Expert Botanist
+    requiredXp: 250
   - level: 4
-    title: Mogul
-    requiredXp: 10000
+    title: Trailblazing BioChemist
+    requiredXp: 1000
+  - level: 5
+    title: World Explorer
+    requiredXp: 2000

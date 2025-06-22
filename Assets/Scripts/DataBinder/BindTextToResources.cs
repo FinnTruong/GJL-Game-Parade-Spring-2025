@@ -1,6 +1,4 @@
 using DG.Tweening;
-using Mono.Cecil;
-using System.Resources;
 using TMPro;
 using UnityEngine;
 
@@ -26,18 +24,24 @@ public class BindTextToResources : MonoBehaviour
 
     void Start()
     {
-        userData.OnGoldLeafChanged += OnResourceChanged;
-        
+        switch (resourceType)
+        {
+            case ResourceType.GoldLeaf:
+                userData.OnGoldLeafChanged += Refresh;
+                oldValue = userData.GoldLeaf;
+                resourceText.SetText(Utility.MoneyToString(oldValue));
+                break;
+            default:
+                break;
+        }        
     }
 
     private void OnDestroy()
     {
-        userData.OnGoldLeafChanged -= OnResourceChanged;
+        userData.OnGoldLeafChanged -= Refresh;
     }
 
-
-
-    private void OnResourceChanged()
+    private void Refresh()
     {
         PlayTextEffect(Mathf.Round(GetCurrentResource()));
     }

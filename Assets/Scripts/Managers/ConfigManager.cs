@@ -6,6 +6,7 @@ public class ConfigManager : GlobalReference<ConfigManager>
     public CropConfig cropConfig;
     public ResearchConfig researchConfig;
     public UserLevelConfig userLevelConfig;
+    public CardAppearanceConfig cardAppearanceConfig;
     protected override void Awake()
     {
         base.Awake();

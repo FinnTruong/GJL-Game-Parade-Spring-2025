@@ -25,24 +25,36 @@ MonoBehaviour:
   - id: 1000
     hasRecipe: 0
     parents: 
-    rewardData: []
+    matureDuration: 5
+    leafYield: 2
+    xpYield: 2
   - id: 1001
     hasRecipe: 0
     parents: 
-    rewardData: []
+    matureDuration: 5
+    leafYield: 5
+    xpYield: 5
   - id: 1002
     hasRecipe: 0
     parents: 
-    rewardData: []
+    matureDuration: 5
+    leafYield: 10
+    xpYield: 10
   - id: 1003
     hasRecipe: 1
     parents: e8030000e9030000
-    rewardData: []
+    matureDuration: 15
+    leafYield: 25
+    xpYield: 15
   - id: 1004
     hasRecipe: 1
     parents: e8030000ea030000
-    rewardData: []
+    matureDuration: 15
+    leafYield: 50
+    xpYield: 25
   - id: 1005
     hasRecipe: 1
     parents: e9030000ea030000
-    rewardData: []
+    matureDuration: 15
+    leafYield: 100
+    xpYield: 50

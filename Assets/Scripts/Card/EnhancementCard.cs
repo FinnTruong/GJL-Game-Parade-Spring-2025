@@ -54,7 +54,7 @@ public class EnhancementCard : Card
         if (targetObject != null)
         {
 
-            OnDeleteCard?.Invoke(this);
+            OnDeleteCard?.Invoke(this, 0f);
         }
 
     }

@@ -22,7 +22,7 @@ public class UserLevelConfig : ScriptableObject
             if (Collection[i].level == level)
                 return Collection[i];
         }
-        return Collection[^0];
+        return Collection[0];
     }
 
     public int GetLevelFromXp(int xp)

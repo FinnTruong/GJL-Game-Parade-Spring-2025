@@ -2,27 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct AmbienceData
+{
+    public AudioClip clip;
+    [Range(0f, 1f)]
+    public float volume;
+    public float fadeDuration;
+}
+
 public class AmbienceManager : MonoBehaviour
 {
-    #region Singleton
-    public static AmbienceManager instance;
-
-    private void Awake()
+    [SerializeField] AmbienceData[] ambienceData;
+    public void Start()
     {
-        if(instance == null)
+        for (int i = 0; i < ambienceData.Length; i++)
         {
-            instance = this;
+            var data = ambienceData[i];
+            AudioManager.Instance.PlayAmbience(data.clip, data.volume, data.fadeDuration);
         }
-        else if(instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-    #endregion
-
-    public void StopSecretTrack()
-    {
-        //if(GameManager.instance.music != null)
-        //AudioManager.instance.PlayMusic(GameManager.instance.music, 1f);
     }
 }

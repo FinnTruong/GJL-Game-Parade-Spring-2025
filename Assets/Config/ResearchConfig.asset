@@ -18,6 +18,12 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: 4eb7bb7a2212fa341bcc62c8c80ae4cc, type: 3}
     - {fileID: 21300000, guid: 43b38a735a73fd34c9be7559f589d698, type: 3}
+    - {fileID: 21300000, guid: 041b8b1ea71c62c4a88d92e3dfeb6ec8, type: 3}
+    - {fileID: 21300000, guid: fdb44d8a4bc493846a05dfb8af7d066d, type: 3}
+    - {fileID: 21300000, guid: 1cc45e2a79544574ebe0b8a72bd01e8d, type: 3}
+    - {fileID: 21300000, guid: 90abe95c654c7f14fb150f9e137544c0, type: 3}
+    - {fileID: 21300000, guid: d13f590167a5be04c8cf541148370880, type: 3}
+    - {fileID: 21300000, guid: e6adeb3c14d38c642a7c61f990698f69, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -42,7 +48,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 8
     - Name: 
       Entry: 7
       Data: 
@@ -52,7 +58,7 @@ MonoBehaviour:
     - Name: $v
       Entry: 7
       Data: ResearchConfigData, Assembly-CSharp
-    - Name: revealAtLevel
+    - Name: requiredLevel
       Entry: 3
       Data: 1
     - Name: title
@@ -66,19 +72,19 @@ MonoBehaviour:
       Data: 0
     - Name: unlockPrice
       Entry: 3
-      Data: 100
+      Data: 0
     - Name: pinColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0.407843143
     - Name: 
       Entry: 4
-      Data: 0.458823532
+      Data: 0.454901963
     - Name: 
       Entry: 4
-      Data: 0.458823532
+      Data: 0.6901961
     - Name: 
       Entry: 4
       Data: 1
@@ -100,15 +106,15 @@ MonoBehaviour:
     - Name: $v
       Entry: 7
       Data: ResearchConfigData, Assembly-CSharp
-    - Name: revealAtLevel
+    - Name: requiredLevel
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: title
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: Lychee
     - Name: description
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: Lychee (Crop) will be available to draw
     - Name: icon
       Entry: 10
       Data: 1
@@ -120,16 +126,16 @@ MonoBehaviour:
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.937254965
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.384313762
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.419607878
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -148,36 +154,276 @@ MonoBehaviour:
     - Name: $v
       Entry: 7
       Data: ResearchConfigData, Assembly-CSharp
-    - Name: revealAtLevel
+    - Name: requiredLevel
       Entry: 3
       Data: 2
     - Name: title
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: POLLINATION
     - Name: description
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: ALLOW COMBINATION OF SIMILAR SPECIES TO PRODUCE HIGHER QUALITY CROP
     - Name: icon
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: unlockPrice
       Entry: 3
-      Data: 0
+      Data: 100
     - Name: pinColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.92549026
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.9568628
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.721568644
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: ResearchConfigData, Assembly-CSharp
+    - Name: requiredLevel
+      Entry: 3
+      Data: 3
+    - Name: title
+      Entry: 1
+      Data: Crossbreeding
+    - Name: description
+      Entry: 1
+      Data: Allow Combination Of Different Species To Produce New Crop
+    - Name: icon
+      Entry: 10
+      Data: 3
+    - Name: unlockPrice
+      Entry: 3
+      Data: 1000
+    - Name: pinColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.8705883
+    - Name: 
+      Entry: 4
+      Data: 0.9960785
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: ResearchConfigData, Assembly-CSharp
+    - Name: requiredLevel
+      Entry: 3
+      Data: 2
+    - Name: title
+      Entry: 1
+      Data: Strategist
+    - Name: description
+      Entry: 1
+      Data: INCREASE MAX HAND SIZE TO 10 CARDS
+    - Name: icon
+      Entry: 10
+      Data: 4
+    - Name: unlockPrice
+      Entry: 3
+      Data: 500
+    - Name: pinColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.454902
+    - Name: 
+      Entry: 4
+      Data: 0.6431373
+    - Name: 
+      Entry: 4
+      Data: 0.733333349
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 7
+      Data: ResearchConfigData, Assembly-CSharp
+    - Name: requiredLevel
+      Entry: 3
+      Data: 4
+    - Name: title
+      Entry: 1
+      Data: Limit Break
+    - Name: description
+      Entry: 1
+      Data: Increase Maximum Crop Quality
+    - Name: icon
+      Entry: 10
+      Data: 5
+    - Name: unlockPrice
+      Entry: 3
+      Data: 10000
+    - Name: pinColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.8196079
+    - Name: 
+      Entry: 4
+      Data: 0.48627454
+    - Name: 
+      Entry: 4
+      Data: 0.913725555
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 7
+    - Name: $v
+      Entry: 7
+      Data: ResearchConfigData, Assembly-CSharp
+    - Name: requiredLevel
+      Entry: 3
+      Data: 4
+    - Name: title
+      Entry: 1
+      Data: Genetic Evolution
+    - Name: description
+      Entry: 1
+      Data: Increase Base Crop Quality When Draw
+    - Name: icon
+      Entry: 10
+      Data: 6
+    - Name: unlockPrice
+      Entry: 3
+      Data: 10000
+    - Name: pinColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.5294118
+    - Name: 
+      Entry: 4
+      Data: 0.6901961
+    - Name: 
+      Entry: 4
+      Data: 0.9058824
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 8
+    - Name: $v
+      Entry: 7
+      Data: ResearchConfigData, Assembly-CSharp
+    - Name: requiredLevel
+      Entry: 3
+      Data: 5
+    - Name: title
+      Entry: 1
+      Data: Expedition
+    - Name: description
+      Entry: 1
+      Data: Explore The World
+    - Name: icon
+      Entry: 10
+      Data: 7
+    - Name: unlockPrice
+      Entry: 3
+      Data: 100000
+    - Name: pinColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.721568644
+    - Name: 
+      Entry: 4
+      Data: 0.400000036
+    - Name: 
+      Entry: 4
+      Data: 0.474509835
+    - Name: 
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 

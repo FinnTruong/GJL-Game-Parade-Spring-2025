@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ public class AudioManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+            Debug.Log("Destroy Audio Manager" + this.gameObject.name);
+            return;
         }
 
         library = GetComponent<SoundLibrary>();
@@ -36,7 +39,6 @@ public class AudioManager : MonoBehaviour
         SetupAmbienceSources();
         SetupSFXSources();
         SetupCollisionSFXSource();
-
     }
 
     void SetupMusicSources()
@@ -53,8 +55,8 @@ public class AudioManager : MonoBehaviour
 
     void SetupAmbienceSources()
     {
-        ambienceSources = new AudioSource[2];
-        for (int i = 0; i < 2; i++)
+        ambienceSources = new AudioSource[4];
+        for (int i = 0; i < 4; i++)
         {
             GameObject newMusicSources = new GameObject("Ambience Source " + (i + 1));
             ambienceSources[i] = newMusicSources.AddComponent<AudioSource>();
@@ -120,26 +122,34 @@ public class AudioManager : MonoBehaviour
     //    StartCoroutine(FadeOutMusic(fadeDuration));
     //}
 
-    public void PlayAmbience(AudioClip clip, float fadeDuration = 0.5f)
+    //public void PlayAmbience(AudioClip clip, float fadeDuration = 0.5f)
+    //{
+    //    activeAmbienceSourceIndex = 1 - activeAmbienceSourceIndex; //The active music source will switch between 0 and 1
+
+    //    ambienceSources[activeAmbienceSourceIndex].clip = clip;
+    //    if (clip != null)
+    //        ambienceSources[activeAmbienceSourceIndex].Play();
+
+    //    StartCoroutine(AnimateAmbienceCrossfade(fadeDuration));
+    //}
+
+    public void PlayAmbience(AudioClip clip, float volume = 0.7f, float fadeInDuration = 0f)
     {
-        activeAmbienceSourceIndex = 1 - activeAmbienceSourceIndex; //The active music source will switch between 0 and 1
-
-        ambienceSources[activeAmbienceSourceIndex].clip = clip;
-        if (clip != null)
-            ambienceSources[activeAmbienceSourceIndex].Play();
-
-        StartCoroutine(AnimateAmbienceCrossfade(fadeDuration));
-    }
-
-    public void PlayAmbience(AudioClip clip)
-    {
-        activeAmbienceSourceIndex = 1 - activeAmbienceSourceIndex; //The active music source will switch between 0 and 1
-
-        ambienceSources[activeAmbienceSourceIndex].clip = clip;
-        if (clip != null)
-            ambienceSources[activeAmbienceSourceIndex].Play();
-
-        StartCoroutine(AnimateAmbienceCrossfade(0.5f));
+        for (int i = 0; i < ambienceSources.Length; i++)
+        {
+            if (!ambienceSources[i].isPlaying)
+            {
+                ambienceSources[i].clip = clip;
+                ambienceSources[i].volume = 0f;
+                ambienceSources[i].Play();
+                ambienceSources[i].DOFade(volume, fadeInDuration);
+                return;
+            }
+        }
+        ambienceSources[0].clip = clip;
+        ambienceSources[0].volume = 0f;
+        ambienceSources[0].Play();
+        ambienceSources[0].DOFade(volume, fadeInDuration);
     }
 
 
@@ -160,7 +170,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void PlaySFX(AudioClip clip, float volume)
+    public void PlaySFX(AudioClip clip, float volume = 0.7f)
     {
         for (int i = 0; i < sfxSources.Length; i++)
         {
@@ -232,15 +242,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    IEnumerator AnimateAmbienceCrossfade(float duration)
+    IEnumerator AnimateAmbienceCrossfade(float duration, float volume)
     {
         float percent = 0;
-
+        var currentVolume = ambienceSources[1 - activeMusicSourceIndex].volume;
         while (percent < 1)
         {
             percent += Time.deltaTime * 1 / duration;
-            ambienceSources[activeAmbienceSourceIndex].volume = Mathf.Lerp(0, 1f, percent);
-            ambienceSources[1 - activeAmbienceSourceIndex].volume = Mathf.Lerp(1f, 0, percent);
+            ambienceSources[activeAmbienceSourceIndex].volume = Mathf.Lerp(0, volume, percent);
+            ambienceSources[1 - activeAmbienceSourceIndex].volume = Mathf.Lerp(currentVolume, 0, percent);
             yield return null;
         }
     }

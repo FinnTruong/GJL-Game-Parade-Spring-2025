@@ -2,11 +2,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
-using System.Linq;
+
 
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
@@ -44,9 +42,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public UnityEvent<Card> BeginDragEvent;
     [HideInInspector] public UnityEvent<Card> EndDragEvent;
     [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
-    [HideInInspector] public UnityEvent<Card> OnDeleteCard;
+    [HideInInspector] public UnityEvent<Card,float> OnDeleteCard;
 
     public CardType cardID;
+    int generation = 0;
+    public int Generation => generation;
     Card hoverOverCard;
 
     void Start()
@@ -76,9 +76,21 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public virtual void Initialize(CardType id) 
     { 
-        cardID = id;
+        this.cardID = id;
         if (cardVisual != null)
             cardVisual.Initialize(this);
+    }
+
+    public virtual void SetGeneration(int value)
+    {
+        generation = value;
+        Initialize(cardID);
+    }
+
+    public virtual void Evolve()
+    {
+        generation++;
+        Initialize(cardID); 
     }
 
     void ClampPosition()
@@ -100,6 +112,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         imageComponent.raycastTarget = false;
         wasDragged = true;
         InputManager.Instance.isDraggingCard = true;
+
     }
 
     public virtual void OnDrag(PointerEventData eventData)
@@ -160,7 +173,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         if (eventData.button != PointerEventData.InputButton.Left)
             return;
-
+        AudioManager.Instance.PlaySFX("PickUp", 0.5f);
         PointerDownEvent.Invoke(this);
         pointerDownTime = Time.time;
     }
